@@ -11,8 +11,8 @@ A simpile e-commerceapp
 - update your data.
 - Change password.
 # Image that cover App
-![Screenshot_1729287008](https://github.com/user-attachments/assets/da705859-3276-4cdd-a4e5-6ccd56e082f1)
-![Screenshot_1729287014](https://github.com/user-attachments/assets/fc04e4c3-8d09-44f9-95df-374ae5138b81)
+![Screenshot_1729287008](https://github.com/user-attachments/assets/da705859-3276-4cdd-a4e5-6ccd56e082f1) ![Screenshot_1729287014](https://github.com/user-attachments/assets/fc04e4c3-8d09-44f9-95df-374ae5138b81)
+
 ![Screenshot_1729287095](https://github.com/user-attachments/assets/30c5c18d-34f1-4a9a-a7e3-72220d11625a)
 ![Screenshot_1729287110](https://github.com/user-attachments/assets/b6418125-381b-4d4a-b171-5cd0f14a9cf1)
 ![Screenshot_1729287150](https://github.com/user-attachments/assets/27ae2169-371f-4eff-a3e4-5f99b674b3aa)
