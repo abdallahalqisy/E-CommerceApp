@@ -2,7 +2,7 @@
 
 A simpile e-commerceapp
 
-Application features :
+# Application features :
 - Authentication using email and password.
 - save a token .
 - Search for a user product their name.
@@ -10,3 +10,4 @@ Application features :
 - Add or remove a product to the card screen.
 - update your data.
 - Change password.
+# Image that cover App
