@@ -1,6 +1,5 @@
 import 'package:fashionapp/core/constants.dart';
-import 'package:fashionapp/features/auth/register/update/update_password_screen.dart';
-import 'package:fashionapp/features/auth/register/update/update_profile_data_screen.dart';
+import 'package:fashionapp/features/customer_support/customer_service_screen.dart';
 import 'package:fashionapp/layout/layout_cubit/layout_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +16,14 @@ class LayoutScreen extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
+              leading: IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CustomerServiceScreen()));
+                  },
+                  icon: const Icon(Icons.support_agent)),
               automaticallyImplyLeading: false,
               centerTitle: true,
               title: SvgPicture.asset(
@@ -24,78 +31,7 @@ class LayoutScreen extends StatelessWidget {
                 height: 50,
                 color: mainColor,
               )),
-          endDrawer: const Drawer(
-              // child: ListView(
-              //   children: [
-              //     DrawerHeader(
-              //       decoration: const BoxDecoration(
-              //         color: mainColor,
-              //       ),
-              //       child: Column(
-              //         children: [
-              //           CircleAvatar(
-              //             radius: 25,
-              //             backgroundImage: cubit.userModel!.image != null
-              //                 ? NetworkImage(cubit.userModel!.image!)
-              //                 : null,
-              //           ),
-
-              //           const SizedBox(height: 10),
-              //           Text(
-              //             cubit.userModel!.name!,
-              //             style: const TextStyle(
-              //                 color: Colors.white,
-              //                 fontSize: 20,
-              //                 fontWeight: FontWeight.bold),
-              //           ),
-              //           const SizedBox(height: 5),
-              //           Text(
-              //             cubit.userModel!.email!,
-              //             style: const TextStyle(
-              //                 color: Colors.white,
-              //                 fontSize: 15,
-              //                 fontWeight: FontWeight.bold),
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //     ListTile(
-              //       leading: const Icon(Icons.person),
-              //       title: const Text('Update Profile'),
-              //       onTap: () {
-              //         Navigator.of(context).push(
-              //           MaterialPageRoute(
-              //             builder: (context) => UpdateProfileDataScreen(),
-              //           ),
-              //         );
-              //       },
-              //     ),
-              //     ListTile(
-              //       leading: const Icon(Icons.lock),
-              //       title: const Text('Update Password'),
-              //       onTap: () {
-              //         Navigator.of(context).push(
-              //           MaterialPageRoute(
-              //             builder: (context) => ChangePasswordScreen(),
-              //           ),
-              //         );
-              //       },
-              //     ),
-              //     ListTile(
-              //       leading: const Icon(Icons.logout),
-              //       title: const Text(
-              //         'Logout',
-              //         style: TextStyle(
-              //             color: Colors.red, fontWeight: FontWeight.bold),
-              //       ),
-              //       onTap: () {
-              //         cubit.logout();
-              //       },
-              //     ),
-              //   ],
-              // ),
-
-              ),
+          endDrawer: const Drawer(),
           bottomNavigationBar: BottomNavigationBar(
               selectedItemColor: mainColor,
               unselectedItemColor: Colors.grey,
