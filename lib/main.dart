@@ -1,7 +1,6 @@
 import 'package:fashionapp/core/shared/bloc_observer/bloc_observer';
 import 'package:fashionapp/core/shared/local_network.dart';
 import 'package:fashionapp/features/auth/first/first_screen.dart';
-import 'package:fashionapp/inmation.dart';
 import 'package:fashionapp/layout/layout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,9 +44,10 @@ class MyApp extends StatelessWidget {
         home:
             // InmationScreen()
 
-            token != null && token!.isNotEmpty
-                ? const LayoutScreen()
-                : const FirstScreen(),
+            // token != null && token!.isNotEmpty
+            // ? const LayoutScreen()
+            // :
+            const FirstScreen(),
       ),
     );
   }

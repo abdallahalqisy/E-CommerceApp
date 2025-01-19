@@ -30,7 +30,7 @@ class CartScreen extends StatelessWidget {
                           itemBuilder: (context, index) {
                             return Dismissible(
                               key: Key(cubit.carts[index].id
-                                  .toString()), // استخدم معرف فريد لكل عنصر
+                                  .toString()), // Use a unique identifier for each item
                               direction: DismissDirection
                                   .endToStart, // السحب من اليمين إلى اليسار
                               onDismissed: (direction) {
@@ -88,7 +88,7 @@ class CartScreen extends StatelessWidget {
                                               ),
                                               Row(
                                                 children: [
-                                                  Text(cubit.carts[index].price!
+                                                  Text(cubit.carts[index].price
                                                       .toString()),
                                                   const SizedBox(
                                                     width: 30,
@@ -165,16 +165,19 @@ class CartScreen extends StatelessWidget {
                       : const Center(
                           child: Text('LOADING...'),
                         )),
-              Container(
-                color: thirdColor,
-                height: 60,
-                child: Center(
-                  child: Text(
-                    'Total Price :${cubit.totalPrice}\$',
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 15,
-                        color: mainColor),
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  color: thirdColor,
+                  height: 60,
+                  child: Center(
+                    child: Text(
+                      'Total Price :${cubit.totalPrice}\$',
+                      style: const TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 15,
+                          color: mainColor),
+                    ),
                   ),
                 ),
               )

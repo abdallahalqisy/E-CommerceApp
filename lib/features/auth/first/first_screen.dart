@@ -1,6 +1,4 @@
-import 'package:fashionapp/core/constants.dart';
-import 'package:fashionapp/features/auth/login/login_screen.dart';
-import 'package:fashionapp/features/auth/register/register_screen.dart';
+import 'package:fashionapp/features/onbordung/onbording_page.dart';
 import 'package:flutter/material.dart';
 
 class FirstScreen extends StatefulWidget {
@@ -21,96 +19,124 @@ class _FirstScreenState extends State<FirstScreen> {
         child: Container(
           height: double.infinity,
           width: double.infinity,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/images/auth_background.png'),
+              colorFilter: ColorFilter.mode(
+                Colors.black.withOpacity(0.5),
+                BlendMode.darken,
+              ),
+              image: const AssetImage(
+                'assets/images/start.png',
+              ),
               fit: BoxFit.fill,
             ),
           ),
           child: SafeArea(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 200),
-                const Text(
-                  'Welcome to Fashion App',
-                  style: TextStyle(
-                    color: mainColor,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
+                const SizedBox(height: 500),
+                const Center(
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    'Welcome to GemStore!\nThe Home for A Fashionista',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                SizedBox(height: 100),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    // Register Button without Animation
-                    InkWell(
-                      onHover: (hovering) {
-                        setState(() {
-                          isRegisterHovered = hovering;
-                        });
-                      },
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => RegisterScreen(),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        width: 100,
-                        height: 45,
-                        decoration: BoxDecoration(
-                          color: secondaryColor,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Register',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
+                const SizedBox(height: 25),
+                MaterialButton(
+                  minWidth: 220,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  splashColor: Colors.black,
+                  color: Colors.grey.withOpacity(.9),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => OnBoardingPage(),
                       ),
-                    ),
-                    // Login Button without Animation
-                    InkWell(
-                      onHover: (hovering) {
-                        setState(() {
-                          isLoginHovered = hovering;
-                        });
-                      },
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginScreen(),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        width: 100,
-                        height: 45,
-                        decoration: BoxDecoration(
-                          color: secondaryColor,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'Login',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                    );
+                  },
+                  child: const Text('Get Started',
+                      style: TextStyle(color: Colors.white)),
                 ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children: [
+                //     // Register Button without Animation
+                //     InkWell(
+                //       onHover: (hovering) {
+                //         setState(() {
+                //           isRegisterHovered = hovering;
+                //         });
+                //       },
+                //       onTap: () {
+                //         Navigator.push(
+                //           context,
+                //           MaterialPageRoute(
+                //             builder: (context) => RegisterScreen(),
+                //           ),
+                //         );
+                //       },
+                //       child: Container(
+                //         width: 100,
+                //         height: 45,
+                //         decoration: BoxDecoration(
+                //           color: secondaryColor,
+                //           borderRadius: BorderRadius.circular(10),
+                //         ),
+                //         child: const Center(
+                //           child: Text(
+                //             'Register',
+                //             style: TextStyle(
+                //               color: Colors.white,
+                //               fontSize: 18,
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //     // Login Button without Animation
+                //     InkWell(
+                //       onHover: (hovering) {
+                //         setState(() {
+                //           isLoginHovered = hovering;
+                //         });
+                //       },
+                //       onTap: () {
+                //         Navigator.push(
+                //           context,
+                //           MaterialPageRoute(
+                //             builder: (context) => LoginScreen(),
+                //           ),
+                //         );
+                //       },
+                //       child: Container(
+                //         width: 100,
+                //         height: 45,
+                //         decoration: BoxDecoration(
+                //           color: secondaryColor,
+                //           borderRadius: BorderRadius.circular(10),
+                //         ),
+                //         child: const Center(
+                //           child: Text(
+                //             'Login',
+                //             style: TextStyle(
+                //               color: Colors.white,
+                //               fontSize: 18,
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ),

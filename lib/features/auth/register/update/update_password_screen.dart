@@ -14,25 +14,52 @@ class ChangePasswordScreen extends StatelessWidget {
     final cubit = BlocProvider.of<LayoutCubit>(context);
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: mainColor,
-          centerTitle: true,
-          title: const Text(
-            'Update Password',
-            style: TextStyle(color: fourColor, fontWeight: FontWeight.w900),
-          ),
-        ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0),
+                child: Row(
+                  children: [
+                    CircleAvatar(
+                      radius: 18,
+                      backgroundColor: Colors.white,
+                      child: Center(
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: const Icon(Icons.arrow_back_ios)),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Row(
+                children: [
+                  Text(
+                    'Create a new password',
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              const Row(
+                children: [
+                  Text(
+                    'Your new password must be different\n from previous used passwords',
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                  ),
+                ],
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: TextFormField(
                   controller: currentPasswordController,
                   decoration: const InputDecoration(
                     labelText: 'Current Password',
-                    border: OutlineInputBorder(),
                   ),
                 ),
               ),
@@ -42,11 +69,10 @@ class ChangePasswordScreen extends StatelessWidget {
                   controller: newPasswordController,
                   decoration: const InputDecoration(
                     labelText: 'New Password',
-                    border: OutlineInputBorder(),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 50),
               BlocConsumer<LayoutCubit, LayoutState>(
                 listener: (context, state) {
                   if (state is ChangePasswordSuccess) {
@@ -60,12 +86,12 @@ class ChangePasswordScreen extends StatelessWidget {
                 builder: (context, state) {
                   return MaterialButton(
                     height: 50,
-                    minWidth: double.infinity,
-                    splashColor: secondaryColor,
+                    minWidth: 200,
+                    splashColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    color: fourColor,
+                    color: Colors.black,
                     onPressed: () {
                       if (currentPasswordController.text.trim() ==
                           currentPassword) {
@@ -85,7 +111,7 @@ class ChangePasswordScreen extends StatelessWidget {
                       }
                     },
                     child: Text(
-                      state is ChangePasswordLoding ? 'Loading...' : 'Update',
+                      state is ChangePasswordLoding ? 'Loading...' : 'Confirm',
                       style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

@@ -17,34 +17,34 @@ class ProfileScreen extends StatelessWidget {
       builder: (context, state) {
         final cubit = BlocProvider.of<LayoutCubit>(context);
         return Scaffold(
-          appBar: AppBar(
-            automaticallyImplyLeading: false,
-            actions: [
-              BlocConsumer<LayoutCubit, LayoutState>(
-                listener: (context, state) {
-                  if (state is LogoutSuccessState) {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(
-                        builder: (context) => const FirstScreen(),
-                      ),
-                    );
-                    debugPrint(token);
-                  }
-                },
-                builder: (context, state) {
-                  return IconButton(
-                    onPressed: () {
-                      cubit.logout();
-                    },
-                    icon: const Icon(
-                      Icons.logout_sharp,
-                      color: Colors.red,
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
+          // appBar: AppBar(
+          //   automaticallyImplyLeading: false,
+          //   actions: [
+          //     BlocConsumer<LayoutCubit, LayoutState>(
+          //       listener: (context, state) {
+          //         if (state is LogoutSuccessState) {
+          //           Navigator.of(context).pushReplacement(
+          //             MaterialPageRoute(
+          //               builder: (context) => const FirstScreen(),
+          //             ),
+          //           );
+          //           debugPrint(token);
+          //         }
+          //       },
+          //       builder: (context, state) {
+          //         return IconButton(
+          //           onPressed: () {
+          //             cubit.logout();
+          //           },
+          //           icon: const Icon(
+          //             Icons.logout_sharp,
+          //             color: Colors.red,
+          //           ),
+          //         );
+          //       },
+          //     ),
+          //   ],
+          // ),
           body: cubit.userModel != null
               ? Padding(
                   padding: const EdgeInsets.all(16.0),
@@ -56,39 +56,70 @@ class ProfileScreen extends StatelessWidget {
                             ? NetworkImage(cubit.userModel!.image!)
                             : null,
                       ),
-                      const SizedBox(height: 20),
-                      Card(
-                        elevation: 4,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: ListTile(
-                          leading: const Icon(Icons.person),
-                          title: Text(cubit.userModel!.name!),
-                        ),
+                      const SizedBox(height: 50),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.person,
+                            size: 25,
+                          ),
+                          const SizedBox(width: 10),
+                          Text(
+                            cubit.userModel!.name!,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Divider(
+                        color: Colors.grey, // لون الخط
+                        thickness: 1,
                       ),
                       const SizedBox(height: 10),
-                      Card(
-                        elevation: 4,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: ListTile(
-                          leading: const Icon(Icons.email),
-                          title: Text(cubit.userModel!.email!),
-                        ),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.email,
+                            size: 25,
+                          ),
+                          const SizedBox(width: 10),
+                          Text(
+                            cubit.userModel!.email!,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
                       ),
-                      Card(
-                        elevation: 4,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: ListTile(
-                          leading: const Icon(Icons.phone),
-                          title: Text(cubit.userModel?.phone ?? ''),
-                        ),
+                      const Divider(
+                        color: Colors.grey,
+                        thickness: 1,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.phone,
+                            size: 25,
+                          ),
+                          const SizedBox(width: 10),
+                          Text(
+                            cubit.userModel?.phone ?? '',
+                            style: const TextStyle(
+                              fontSize: 18,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Divider(
+                        color: Colors.grey,
+                        thickness: 1,
+                      ),
+                      const SizedBox(height: 50),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -99,7 +130,7 @@ class ProfileScreen extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            color: mainColor,
+                            color: Colors.black,
                             onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => ChangePasswordScreen(
@@ -116,11 +147,11 @@ class ProfileScreen extends StatelessWidget {
                           MaterialButton(
                             height: 50,
                             minWidth: 150,
-                            splashColor: mainColor,
+                            splashColor: Colors.black,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            color: fourColor,
+                            color: Colors.white,
                             onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => UpdateProfileDataScreen(),
