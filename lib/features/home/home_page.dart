@@ -1,3 +1,4 @@
+import 'package:fashionapp/features/dedials/details_screen.dart';
 import 'package:fashionapp/features/home/widgets/banners.dart';
 import 'package:fashionapp/features/home/widgets/product_item.dart';
 import 'package:fashionapp/features/home/widgets/row_in_home_screen.dart';
@@ -23,16 +24,10 @@ class HomeScreen extends StatelessWidget {
               shrinkWrap: true,
               children: [
                 CustomBanners(cubit: cubit, pageController: pageController),
-                const SizedBox(
-                  height: 10,
-                ),
-                const RowInHomeView(
-                  text: 'Products',
-                ),
+                const SizedBox(height: 10),
+                const RowInHomeView(text: 'Products'),
                 cubit.product.isEmpty
-                    ? const Center(
-                        child: CupertinoActivityIndicator(),
-                      )
+                    ? const Center(child: CupertinoActivityIndicator())
                     : GridView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
@@ -47,11 +42,22 @@ class HomeScreen extends StatelessWidget {
                           childAspectRatio: 0.7,
                         ),
                         itemBuilder: (BuildContext context, int index) {
-                          return ProductItem(
-                              cubit: cubit,
-                              model: cubit.filteredProducts.isEmpty
-                                  ? cubit.product[index]
-                                  : cubit.filteredProducts[index]);
+                          final product = cubit.filteredProducts.isEmpty
+                              ? cubit.product[index]
+                              : cubit.filteredProducts[index];
+
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      DetailsScreen(model: product),
+                                ),
+                              );
+                            },
+                            child: ProductItem(cubit: cubit, model: product),
+                          );
                         },
                       ),
               ],
